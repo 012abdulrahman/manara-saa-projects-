@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" modified="2026-10-17T00:00:00.000Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="eb-app" name="Architecture">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Users&lt;br&gt;HTTPS requests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Route 53&lt;br&gt;DNS alias" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="380" y="110" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="CloudFront + WAF&lt;br&gt;Cache / edge filtering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="710" y="110" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Application Load Balancer&lt;br&gt;Public subnets · 2 AZs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="110" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="EC2 Auto Scaling Group&lt;br&gt;Private app subnets · 2 AZs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Amazon RDS Multi-AZ&lt;br&gt;Private DB subnets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="CloudWatch + SNS&lt;br&gt;Metrics / alarms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="710" y="350" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Systems Manager&lt;br&gt;Secure instance access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F6FC;strokeColor=#376092;fontSize=14;fontStyle=1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="350" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="6" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="9" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,22 @@
+digraph Architecture {
+rankdir=LR;
+graph [bgcolor="white", pad="0.25", nodesep="0.45", ranksep="0.65", splines=ortho, labelloc="t", label="Scalable Web Application with ALB and Auto Scaling", fontsize=20, fontname="Arial"];
+node [shape=box, style="rounded,filled", fillcolor="#F2F6FC", color="#376092", penwidth=1.5, fontname="Arial", fontsize=11, margin="0.18,0.12"];
+edge [color="#64748B", penwidth=1.4, arrowsize=0.75];
+n0 [label="Users\nHTTPS requests"];
+n1 [label="Route 53\nDNS alias"];
+n2 [label="CloudFront + WAF\nCache / edge filtering"];
+n3 [label="Application Load Balancer\nPublic subnets · 2 AZs"];
+n4 [label="EC2 Auto Scaling Group\nPrivate app subnets · 2 AZs"];
+n5 [label="Amazon RDS Multi-AZ\nPrivate DB subnets"];
+n6 [label="CloudWatch + SNS\nMetrics / alarms"];
+n7 [label="Systems Manager\nSecure instance access"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+n4 -> n6;
+n5 -> n6;
+n7 -> n4;
+}
